@@ -9,7 +9,7 @@ public class main {
 		Scanner scan = new Scanner(System.in);
 		String option = "";
 		
-		reader.readTxtFileToPriorityQueue();
+		
 		
 		while(!option.equals("1") && !option.equals("2")) {
 			System.out.println("Bienvenido, cual de las 2 implementaciones desea utilizar:\n"
@@ -19,6 +19,8 @@ public class main {
 		}
 		
 		if(option.equals("1")) {
+			
+			reader.readTxtFileToPriorityQueue();
 
 			while(!option.equals("4")) {
 				System.out.println("Indique la operacion que desea realizar:\n"

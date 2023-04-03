@@ -1,13 +1,12 @@
 import java.io.BufferedReader;
-import java.util.ArrayList;
 import java.io.FileReader;
 
 public class Reader {
 	
 	public BTHeap readTxtFileToPriorityQueue() {
-	    ArrayList<String> wordsList = new ArrayList<String>();
 	    String MyFile = "src/pacientes.txt";
-
+	    System.out.println("Pacientes ingresados");
+	    
 	    try {
 	        BufferedReader reader = new BufferedReader(new FileReader(MyFile));
 	        String line;
@@ -17,8 +16,9 @@ public class Reader {
 	            Strline[0] = Strline[0].trim();
 	            Strline[1] = Strline[1].trim();
 	            Strline[2] = Strline[2].trim();
-
-	            System.out.println(Strline[0] + Strline[1] + Strline[2]);
+	            
+	            Patient patient = new Patient(Strline[0], Strline[1], Strline[2]);
+	            System.out.println(patient.getName() + " " + patient.getCondition() + " " + patient.getPriority());
 	        }
 
 	        reader.close();
@@ -26,6 +26,8 @@ public class Reader {
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
+	    
+	    System.out.println("\n");
 	    return null;
 	}
 }
