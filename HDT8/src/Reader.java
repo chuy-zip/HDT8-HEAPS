@@ -21,7 +21,7 @@ public class Reader {
 	            
 	            Patient patient = new Patient(Strline[0], Strline[1], Strline[2]);
 	            heapTree.insert(patient);
-	            System.out.println(patient.getName() + " " + patient.getCondition() + " " + patient.getPriority());
+	            System.out.println(patient.getName() + ", " + patient.getCondition() + ", " + patient.getPriority());
 	        }
 
 	        reader.close();
@@ -51,7 +51,7 @@ public class Reader {
 	            
 	            Patient patient = new Patient(Strline[0], Strline[1], Strline[2]);
 	            heapQueue.add(patient);
-	            System.out.println(patient.getName() + " " + patient.getCondition() + " " + patient.getPriority());
+	            System.out.println(patient.getName() + ", " + patient.getCondition() + ", " + patient.getPriority());
 	        }
 
 	        reader.close();

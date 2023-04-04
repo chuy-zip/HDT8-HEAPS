@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
@@ -16,7 +17,6 @@ public class main {
 					 + "|1| Utilizar la implementacion propia\n"
 					 + "|2| Utilizar la implementacion de Java\n");
 			option = scan.nextLine();
-			BTHeap heap = reader.readTxtFileToPriorityQueue();
 		}
 		
 		if(option.equals("1")) {
@@ -71,28 +71,38 @@ public class main {
 						+ "|3| Ingresar paciente\n"
 						+ "|4| Salir del programa\n");
 				option = scan.nextLine();
-			}
-			
-			if(option.equals("1")) {
 				
-			}
-			else if(option.equals("2")) {
-				
-			}
-			else if(option.equals("3")) {
-				System.out.println("Ingrese el nombre");
-				String name = scan.nextLine();
-				
-				System.out.println("Ingrese la condicion medica del paciente");
-				String condition = scan.nextLine();
-				
-				System.out.println("Ingrese la prioridad");
-				String prio = scan.nextLine();
-				
-				Patient pat = new Patient(name, condition, prio);
-				
-				PatientQueue.add(pat);
-				System.out.println("Paciente ingresado\n");
+				if(option.equals("1")) {
+					System.out.println("Priority queue: ");
+					
+					Iterator iterator = PatientQueue.iterator();
+					 
+			        while (iterator.hasNext()) {
+			            System.out.println(iterator.next());
+			        }
+			        System.out.println("**Este listado no muestra el orden de prioridad**\n");
+				}
+				else if(option.equals("2")) {
+					Patient patient = PatientQueue.peek();
+					System.out.println("Se atendio a: " + patient.getName() + ", " + patient.getCondition() + ", " + patient.getPriority());
+					PatientQueue.poll();
+					
+				}
+				else if(option.equals("3")) {
+					System.out.println("Ingrese el nombre");
+					String name = scan.nextLine();
+					
+					System.out.println("Ingrese la condicion medica del paciente");
+					String condition = scan.nextLine();
+					
+					System.out.println("Ingrese la prioridad");
+					String prio = scan.nextLine();
+					
+					Patient pat = new Patient(name, condition, prio);
+					
+					PatientQueue.add(pat);
+					System.out.println("Paciente ingresado\n");
+				}
 			}
 			
 		}
