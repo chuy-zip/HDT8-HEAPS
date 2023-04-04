@@ -152,4 +152,22 @@ public class BTHeap<T> {
 	    }
 	}
 
+	public int getTreeSize() {
+		return TreeSize;
+	}
+
+	public void setTreeSize(int treeSize) {
+		TreeSize = treeSize;
+	}
+
+	public Node<T> getRoot() {
+		return root;
+	}
+
+	public void setRoot(Node<T> root) {
+		this.root = root;
+	}
+	
+	
+
 }
