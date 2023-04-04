@@ -20,15 +20,19 @@ public class main {
 		
 		if(option.equals("1")) {
 			
-			reader.readTxtFileToPriorityQueue();
+			BTHeap heap = reader.readTxtFileToPriorityQueue();
 
 			while(!option.equals("4")) {
 				System.out.println("Indique la operacion que desea realizar:\n"
-						+ "|1| Ver la lista de pacientes por orden de prioridad\n"
+						+ "|1| Ver la lista de pacientes\n"
 						+ "|2| Atender paciente\n"
 						+ "|3| Ingresar paciente\n"
 						+ "|4| Salir del programa\n");
 				option = scan.nextLine();
+				
+				if(option.equals("1")) {
+					heap.printTree();
+				}
 			}
 			
 		}
@@ -37,7 +41,7 @@ public class main {
 			
 			while(!option.equals("4")) {
 				System.out.println("Indique la operacion que desea realizar:\n"
-						+ "|1| Ver la lista de pacientes por orden de prioridad\n"
+						+ "|1| Ver la lista de pacientes\n"
 						+ "|2| Atender paciente\n"
 						+ "|3| Ingresar paciente\n"
 						+ "|4| Salir del programa\n");

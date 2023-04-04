@@ -37,16 +37,13 @@ public class Patient implements Comparable<Patient>{
 
 	@Override
 	public int compareTo(Patient o) {
-		if(Priority.equals(o.getPriority())) {
-			return 0;
-		}
-		
-		else if(Priority.compareToIgnoreCase(o.getPriority()) < 0) {
-			return -1;
-		}
-		return 1;
+	    return Priority.compareTo(o.getPriority());
 	}
 	
-	
-
+	@Override
+	public String toString() {
+		return "Patient{name='" + name + "', condition='" + condition + "', priority='" + Priority + "'}";
+	}
 }
+
+

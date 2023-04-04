@@ -6,6 +6,7 @@ public class Reader {
 	public BTHeap readTxtFileToPriorityQueue() {
 	    String MyFile = "src/pacientes.txt";
 	    System.out.println("Pacientes ingresados");
+	    BTHeap<Patient> heapTree = new BTHeap();
 	    
 	    try {
 	        BufferedReader reader = new BufferedReader(new FileReader(MyFile));
@@ -18,6 +19,7 @@ public class Reader {
 	            Strline[2] = Strline[2].trim();
 	            
 	            Patient patient = new Patient(Strline[0], Strline[1], Strline[2]);
+	            heapTree.insert(patient);
 	            System.out.println(patient.getName() + " " + patient.getCondition() + " " + patient.getPriority());
 	        }
 
@@ -28,6 +30,6 @@ public class Reader {
 	    }
 	    
 	    System.out.println("\n");
-	    return null;
+	    return heapTree;
 	}
 }
