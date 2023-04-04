@@ -93,5 +93,63 @@ public class BTHeap<T> {
 	    }
 	    return getNodeToPrint(node, branchRoute.substring(1));
 	}
+	
+	public T remove() {
+	    if (root == null) {
+	        System.out.println("La cola ahora esta vacia");
+	        return null;
+	    }
+	    
+	    T rootValue = root.getValue();
+	    Node<T> lastNode = getLastNode();
+	    
+	    if (lastNode == root) {
+	        root = null;
+	    } else {
+	        root.setValue(lastNode.getValue());
+	        if (lastNode.getParent().getLeft() == lastNode) {
+	            lastNode.getParent().setLeft(null);
+	        } else {
+	            lastNode.getParent().setRight(null);
+	        }
+	        shiftDown(root);
+	    }
+	    
+	    TreeSize--;
+	    return rootValue;
+	}
+
+	private Node<T> getLastNode() {
+	    if (root == null) {
+	        return null;
+	    }
+	    
+	    int binarySize = Integer.toBinaryString(TreeSize).length() - 1;
+	    String binaryString = Integer.toBinaryString(TreeSize);
+	    
+	    Node<T> current = root;
+	    for (int i = 1; i <= binarySize; i++) { // iterate to binarySize instead of binarySize - 1
+	        if (binaryString.charAt(i) == '0') {
+	            current = current.getLeft();
+	        } else {
+	            current = current.getRight();
+	        }
+	    }
+	    return current;
+	}
+
+	private void shiftDown(Node<T> current) {
+	    while (current.getLeft() != null) {
+	        Node<T> minChild = current.getLeft();
+	        if (current.getRight() != null && ((Patient) current.getRight().getValue()).compareTo((Patient) minChild.getValue()) < 0) {
+	            minChild = current.getRight();
+	        }
+	        if (((Patient) current.getValue()).compareTo((Patient) minChild.getValue()) <= 0) {
+	            break;
+	        }
+	        swap(current, minChild);
+	        current = minChild;
+	    }
+	}
 
 }

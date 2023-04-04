@@ -24,14 +24,32 @@ public class main {
 
 			while(!option.equals("4")) {
 				System.out.println("Indique la operacion que desea realizar:\n"
-						+ "|1| Ver la lista de pacientes\n"
-						+ "|2| Atender paciente\n"
+						+ "|1| Ver la lista de pacientes (Orden arriba hacia abajo del arbol)\n"
+						+ "|2| Atender paciente con mayor prioridad\n"
 						+ "|3| Ingresar paciente\n"
 						+ "|4| Salir del programa\n");
 				option = scan.nextLine();
 				
 				if(option.equals("1")) {
 					heap.printTree();
+				}
+				else if(option.equals("2")) {
+					heap.remove();
+				}
+				else if(option.equals("3")) {
+					
+					System.out.println("Ingrese el nombre");
+					String name = scan.nextLine();
+					
+					System.out.println("Ingrese la condicion medica del paciente");
+					String condition = scan.nextLine();
+					
+					System.out.println("Ingrese la prioridad");
+					String prio = scan.nextLine();
+					
+					Patient pat = new Patient(name, condition, prio);
+					
+					heap.insert(pat);
 				}
 			}
 			
@@ -42,7 +60,7 @@ public class main {
 			while(!option.equals("4")) {
 				System.out.println("Indique la operacion que desea realizar:\n"
 						+ "|1| Ver la lista de pacientes\n"
-						+ "|2| Atender paciente\n"
+						+ "|2| Atender paciente con mayor prioridad\n"
 						+ "|3| Ingresar paciente\n"
 						+ "|4| Salir del programa\n");
 				option = scan.nextLine();
