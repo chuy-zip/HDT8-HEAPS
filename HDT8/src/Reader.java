@@ -4,6 +4,13 @@ import java.util.PriorityQueue;
 
 public class Reader {
 	
+	/**
+	 * This function reads patient information from a text file, creates patient objects, inserts them
+	 * into a binary heap, and returns the heap.
+	 * 
+	 * @return The method is returning a binary heap tree (BTHeap) containing Patient objects read from a
+	 * text file.
+	 */
 	public BTHeap readTxtFileToPriorityQueue() {
 	    String MyFile = "src/pacientes.txt";
 	    System.out.println("Pacientes ingresados");
@@ -34,6 +41,12 @@ public class Reader {
 	    return heapTree;
 	}
 	
+	/**
+	 * This function reads a text file containing patient information, creates a priority queue of
+	 * patients based on their priority level, and returns the priority queue.
+	 * 
+	 * @return A PriorityQueue of Patient objects is being returned.
+	 */
 	public PriorityQueue readTxtFileToPriorityQueueJava() {
 	    String MyFile = "src/pacientes.txt";
 	    System.out.println("Pacientes ingresados");
